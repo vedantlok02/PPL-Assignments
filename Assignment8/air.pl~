@@ -1,0 +1,49 @@
+flight (mumbai, delhi, 5000, day, airindia).
+flight (mumbai, pune, 3000, night, spicejet).
+flight (mumbai, kolkata, 4000, day, goair).
+flight (mumbai, jammu, 7000, night, indigo).
+flight (mumbai, chennai, 6000, day, airindia).
+flight (mumbai, jaipur, 4500, night, indigo).
+flight (mumbai, kochi, 4500, night, indigo).
+flight (mumbai, goa, 4500, night, indigo).
+flight (mumbai, jammu, 8000, night, goair).
+flight (mumbai, chennai, 6500, day, spicejet).
+
+
+flight (delhi, mumbai, 4000, night, indigo).
+flight (delhi, kolkata, 5000, day, airindia).
+flight (delhi, chennai, 7000, night, spicejet).
+flight (delhi, trichi, 4500, day, indigo).
+flight (delhi, nagpur, 5000, day, spicejet).
+flight (delhi, guwahati, 4000, day, airindia).
+
+flight (kolkata, delhi, 5400, night, airindia).
+flight (kolkata, nagpur, 6000, day, airindia).
+flight (kolkata, jaipur, 5500, night, spicejet).
+flight (kolkata, mumbai, 4500, day, spicejet).
+flight (kolkata, pune, 3500, night, airindia).
+flight (kolkata, kochi, 4000, day, spicejet).
+flight (kolkata, goa, 5000, day, airindia).
+
+flight (goa, delhi, 6000, day, spicejet).
+flight (goa, kochi, 4500, night, airindia).
+flight (goa, pune, 3500, day, goair).
+flight (goa, mumbai, 5000, night, spicejet).
+flight (goa, jaipur, 7500, day, airindia).
+flight (goa, kochi, 6500, night, airasia).
+flight (goa, kolkata, 5400, day, airindia).
+flight (goa, nagpur, 5400, day, airindia).
+
+flight (kochi, pune, 4300, day, spicejet).
+flight (kochi, mumbai, 6500, night, airindia).
+flight (kochi, nagpur, 5600, day, spicejet).
+flight (kochi, goa, 6300, night, goair).
+flight (kochi, jaipur, 7400, day, airindia).
+flight (kochi, delhi, 7200, night, spicejet).
+
+
+check_flight (X, Y) :- flight (X, Y, _, _, _),.
+day_flight_from (X) :- flight (X, _, _, day, _).
+cheapest_from (X) :- flight (X, _, P, _, _), P < 5000.
+airline_name (X, Y) :- flight (X, Y, _, _, A),
+						format ('~W is available from ~W to ~W. ~n', [A, X, Y]).
